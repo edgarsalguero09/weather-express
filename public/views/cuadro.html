@@ -1,0 +1,44 @@
+<form>
+    <div class="has-feedback">
+        <input type="text" class="form-control" placeholder="Ciudad" ng-model="ciudad"> </input>
+        <span class="glyphicon glyphicon-map-marker form-control-feedback"></span>
+    </div>
+    <div class="text-center editBtn">
+        <button class="btn btn-success btn-sm" ng-click="comenzar()">Comenzar</button>
+        <button class="btn btn-info btn-sm" ng-click="verhistorico()">Ver histórico</button>
+    </div>
+</form>
+<div class="todoList bg-info">
+    <div class="item" ng-repeat="clima in climas">
+        <h5><img src="http://openweathermap.org/img/w/{{clima.weather[0].icon}}.png" /> Clima en {{clima.name}}, {{clima.sys.country}} | LAT: {{clima.coord.lat}}, LON: {{clima.coord.lon}}</h5>
+        <div class="panel panel-default">
+          <table class="table">
+              <tr>
+                  <td>Actualizacion</td>
+                  <td>{{clima.dt}}</td>
+              </tr>
+              <tr>
+                  <td>Temperatura</td>
+                  <td>{{clima.main.temp}}°C</td>
+              </tr>
+              <tr>
+                  <td>Viento</td>
+                  <td>{{clima.wind.speed}} m/s, Dir: {{clima.wind.deg}}°</td>
+              </tr>
+              <tr>
+                  <td>Nubosidad</td>
+                  <td>{{clima.weather[0].description}}</td>
+              </tr>
+              <tr>
+                  <td>Presión</td>
+                  <td>{{clima.main.pressure}} Pa</td>
+              </tr>
+              <tr>
+                  <td>Humedad</td>
+                  <td>{{clima.main.humidity}}%</td>
+              </tr>
+          </table>
+        </div>
+        <span class="bottom">Registros guardados: 15 | Último registro: 2016-12-28 11:01:13</span>
+    </div>
+</div>
